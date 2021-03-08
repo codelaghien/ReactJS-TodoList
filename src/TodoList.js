@@ -41,7 +41,7 @@ class TodoList extends React.Component {
 				task.done = true;
 			}
 		});
-		// console.log('tasks muốn complete', tasks);
+		// console.log('tasks', tasks);
 		this.setState({ tasks });
 	};
 
@@ -52,7 +52,10 @@ class TodoList extends React.Component {
 				<br />
 				<div className='aligned'>
 					<img
-						src='./assets/iconfinder_gnome-app-install_29240 (1).png'
+						src={
+							process.env.PUBLIC_URL +
+							'/assets/iconfinder_gnome-app-install_29240 (1).png'
+						}
 						alt='Add Task'
 						width='25'
 						style={{ cursor: 'pointer' }}
@@ -69,7 +72,7 @@ class TodoList extends React.Component {
 					{this.state.tasks.map((value, index) => {
 						return (
 							<Todo
-								key={index}
+								key={value.id}
 								id={value.id}
 								value={value.name}
 								deleteTask={this.deleteTask}

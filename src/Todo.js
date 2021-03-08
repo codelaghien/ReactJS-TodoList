@@ -19,7 +19,10 @@ class Todo extends React.Component {
 		if (!this.state.done) {
 			checkDone = (
 				<img
-					src='./assets/iconfinder_Symbol_-_Check_58687.png'
+					src={
+						process.env.PUBLIC_URL +
+						'/assets/iconfinder_Symbol_-_Check_58687.png'
+					}
 					alt='Hoàn thành'
 					width='25'
 					style={{ cursor: 'pointer' }}
@@ -33,7 +36,10 @@ class Todo extends React.Component {
 				{checkDone}
 				<img
 					className={this.state.done ? 'noCheckDone' : ''}
-					src='./assets/iconfinder_f-cross_256_282471.png'
+					src={
+						process.env.PUBLIC_URL +
+						'/assets/iconfinder_f-cross_256_282471.png'
+					}
 					alt='Hoàn thành'
 					width='15'
 					style={{ cursor: 'pointer' }}
