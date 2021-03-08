@@ -1,0 +1,9 @@
+.Todo {
+	text-align: left;
+	margin-left: 0px;
+}
+
+.aligned {
+	display: flex;
+	align-items: center;
+}

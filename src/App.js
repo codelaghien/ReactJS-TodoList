@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Todo from './Todo';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,8 +17,31 @@ class App extends React.Component {
 		if (this.state.taskName === '') {
 			return;
 		}
-		this.state.tasks.push(this.state.taskName);
+		const id = this.state.tasks.length;
+		const name = this.state.taskName;
+		this.state.tasks.push({ id, name, done: false });
 		this.setState({ taskName: '' });
+	};
+
+	deleteTask = (id) => {
+		// console.log('list', this.state.tasks);
+		console.log('deleteTask', id);
+		const tasks = this.state.tasks.filter((task) => task.id !== id);
+		console.log('sau khi xóa', tasks);
+		this.setState({ tasks });
+	};
+
+	completeTask = (id) => {
+		// console.log('list', this.state.tasks);
+		console.log('completeTask', id);
+		const tasks = this.state.tasks;
+		tasks.forEach((task) => {
+			if (task.id === id) {
+				task.done = true;
+			}
+		});
+		console.log('tasks muốn complete', tasks);
+		this.setState({ tasks });
 	};
 
 	render() {
@@ -41,9 +65,17 @@ class App extends React.Component {
 						onChange={this.myTaskChangeHandler}
 					/>
 				</div>
-				<ul>
+				<ul style={{ paddingLeft: '10px' }}>
 					{this.state.tasks.map((value, index) => {
-						return <li key={index}>{value}</li>;
+						return (
+							<Todo
+								key={index}
+								id={value.id}
+								value={value.name}
+								deleteTask={this.deleteTask}
+								completeTask={this.completeTask}
+							/>
+						);
 					})}
 				</ul>
 			</div>
