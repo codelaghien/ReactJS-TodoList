@@ -19,10 +19,10 @@ class App extends React.Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>
+							<td style={{ verticalAlign: 'top' }}>
 								<TodoList name='Đi Chợ' />
 							</td>
-							<td>
+							<td style={{ verticalAlign: 'top' }}>
 								<TodoList name='Đi Shopping' />
 							</td>
 						</tr>
