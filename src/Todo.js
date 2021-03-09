@@ -23,7 +23,7 @@ class Todo extends React.Component {
 	render() {
 		// console.log('render');
 		let checkDone = '';
-		if (!this.state.done) {
+		if (!this.state.data.done) {
 			checkDone = (
 				<img
 					src={
@@ -42,7 +42,7 @@ class Todo extends React.Component {
 			<div className='todo aligned'>
 				{checkDone}
 				<img
-					className={this.state.done ? 'noCheckDone' : ''}
+					className={this.state.data.done ? 'noCheckDone' : ''}
 					src={
 						process.env.PUBLIC_URL +
 						'/assets/iconfinder_f-cross_256_282471.png'
