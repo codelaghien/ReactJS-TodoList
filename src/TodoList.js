@@ -73,8 +73,7 @@ class TodoList extends React.Component {
 						return (
 							<Todo
 								key={value.id}
-								id={value.id}
-								value={value.name}
+								data={value}
 								deleteTask={this.deleteTask}
 								completeTask={this.completeTask}
 							/>
